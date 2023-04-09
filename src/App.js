@@ -7,7 +7,10 @@ function App() {
 	const [longitude, setLongitude] = useState(undefined);
 	const [distance, setDistance] = useState(undefined);
 
+	const [isLocationGranted, setIsLocationGranted] = useState(false);
+
 	const locationGranted = (position) => {
+		setIsLocationGranted(true)
 		setLatitude(position.coords.latitude);
 		setLongitude(position.coords.longitude);
 	};
@@ -45,17 +48,26 @@ function App() {
 
 	return (
 		<div className="App">
-			<h1>
-				Latitude: {latitude}
-			</h1>
+			{
+				isLocationGranted ? 
+					<div className="locationGranted">
+						<h1>
+							Latitude: {latitude}
+						</h1>
 
-			<h1>
-				Longitude: {longitude}
-			</h1>
+						<h1>
+							Longitude: {longitude}
+						</h1>
 
-			<h1>
-				Distance: {distance}
-			</h1>
+						<h1>
+							Distance: {distance}
+						</h1>
+					</div>
+				:
+					<div className="locationDenied">
+						<h1>Please enable location to get your speed</h1>
+					</div>
+			}
 		</div>
 	);
 }
