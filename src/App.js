@@ -7,8 +7,8 @@ function App() {
 
 	function haveLocation(position) {
 		setLocationGiven(true);
-		setSpeed(position.coords.speed);
-		console.log(position.coords.speed);
+		setSpeed(position.coords.speed !== (undefined || null) ? (position.coords.speed).toFixed(1) : 0);
+		console.log(position.coords.speed !== (undefined || null) ? (position.coords.speed).toFixed(1) : 0);
 	}
 
 	function dontHaveLocation() {
@@ -16,9 +16,9 @@ function App() {
 	}
 
 	useEffect(() => {
-		// setInterval(() => {
+		setInterval(() => {
 			navigator.geolocation.watchPosition((position) => haveLocation(position) , dontHaveLocation);
-		// }, 1000);
+		}, 1000);
 	}, []);
 
 	return (
@@ -26,7 +26,7 @@ function App() {
 			{
 				locationGiven ?
 					<div className="locationGranted">
-						<h1>Speed: {speed === null ? "E: 0"  : speed}</h1>
+						<h1>Speed: {speed === null ? "~0"  : speed} Meters/Second</h1>
 					</div>
 					:
 					<div className="locationDenied">
