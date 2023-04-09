@@ -8,8 +8,10 @@ function App() {
 	
 	function locationGranterd(position) {
 		setIsLocationGranted(true);
-		setSpeed(position.coords.speed);
-		console.log(position.coords.speed);
+		var currentSpeed = (Math.round(position.coords.speed * 10) / 10);
+		
+		setSpeed(currentSpeed);
+		console.log(currentSpeed);
 	}
 
 	function locationDenied() {
