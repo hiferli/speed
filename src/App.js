@@ -26,7 +26,7 @@ function App() {
 			{
 				locationGiven ?
 					<div className="locationGranted">
-						<h1>Speed: {speed === null ? 0 : speed}</h1>
+						<h1>Speed: {speed === null ? "E: 0"  : speed}</h1>
 					</div>
 					:
 					<div className="locationDenied">
