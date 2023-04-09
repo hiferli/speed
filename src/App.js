@@ -9,7 +9,7 @@ function App() {
 	function locationGranterd(position) {
 		setIsLocationGranted(true);
 		var currentSpeed = (Math.round(position.coords.speed * 10) / 10);
-		
+
 		setSpeed(currentSpeed);
 		console.log(currentSpeed);
 	}
@@ -40,8 +40,8 @@ function App() {
 				isLocationGranted ? 
 					<div className="granted">
 						<h2>{speed === null ? 0 : speed} M/S</h2>
-						<h2>{speed * 3.6} KM/H</h2>
-						<h2>{speed * 2.237} Miles/H</h2>
+						<h2>{(Math.round(speed * 3.6 * 10) / 10)} KM/H</h2>
+						<h2>{(Math.round(speed * 2.237 * 10) / 10)} Miles/H</h2>
 					</div>
 					
 					:
