@@ -22,7 +22,7 @@ function App() {
 	useEffect(() => {
 		const interval = setInterval(() => {
 			navigator.geolocation.watchPosition((position) => locationGranterd(position) , locationDenied);
-		}, 250);
+		}, 500);
 		
 		return () => clearInterval(interval);
 	}, []);
