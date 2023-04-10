@@ -29,7 +29,7 @@ function App() {
 				setErrorMessage("Geolocation is not supported on This Device. Try using some other device!");
 			}
 
-		}, 1000);
+		}, 250);
 		
 		return () => clearInterval(interval);
 	}, []);
