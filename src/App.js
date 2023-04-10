@@ -21,14 +21,7 @@ function App() {
 
 	useEffect(() => {
 		const interval = setInterval(() => {
-
-			if(navigator.geolocation){
-				navigator.geolocation.watchPosition((position) => locationGranterd(position) , locationDenied);
-			} else {
-				setIsLocationGranted(false);
-				setErrorMessage("Geolocation is not supported on This Device. Try using some other device!");
-			}
-
+			navigator.geolocation.watchPosition((position) => locationGranterd(position) , locationDenied);
 		}, 250);
 		
 		return () => clearInterval(interval);
